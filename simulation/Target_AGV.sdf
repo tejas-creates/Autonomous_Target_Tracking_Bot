@@ -69,67 +69,6 @@
       <visual name="check_3_4"><pose>-0.1013 0.0225 0.0625 0 0 0</pose><geometry><box><size>0.0005 0.015 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
       <visual name="check_3_5"><pose>-0.1013 0.0375 0.0625 0 0 0</pose><geometry><box><size>0.0005 0.015 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
 
-      <!-- ===== SIDE CHECKERBOARDS (side-marker feature; remove this block to revert) =====
-           Secondary markers only: the rear 6x4-square board above stays primary.
-           Each side is 5x5 squares of 15 mm (4x4 inner corners, 75 x 75 mm). The
-           4x4 search cannot match the rear 5x3 corners and vice versa.
-           Left (+Y) uses black/white squares, right (-Y) uses red/white squares,
-           so the detector can tell the faces apart. Square faces are at |y| = 0.1013 m,
-           outboard of the wheels (|y| <= 0.0995 m), centred at x = 0, z = 0.040 m. -->
-      <visual name="side_left_backing"><pose>0 0.1006 0.040 0 0 0</pose><geometry><box><size>0.095 0.001 0.095</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_0_0"><pose>-0.0300 0.1013 0.0100 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_0_1"><pose>-0.0150 0.1013 0.0100 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_0_2"><pose>0.0000 0.1013 0.0100 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_0_3"><pose>0.0150 0.1013 0.0100 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_0_4"><pose>0.0300 0.1013 0.0100 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_1_0"><pose>-0.0300 0.1013 0.0250 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_1_1"><pose>-0.0150 0.1013 0.0250 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_1_2"><pose>0.0000 0.1013 0.0250 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_1_3"><pose>0.0150 0.1013 0.0250 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_1_4"><pose>0.0300 0.1013 0.0250 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_2_0"><pose>-0.0300 0.1013 0.0400 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_2_1"><pose>-0.0150 0.1013 0.0400 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_2_2"><pose>0.0000 0.1013 0.0400 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_2_3"><pose>0.0150 0.1013 0.0400 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_2_4"><pose>0.0300 0.1013 0.0400 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_3_0"><pose>-0.0300 0.1013 0.0550 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_3_1"><pose>-0.0150 0.1013 0.0550 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_3_2"><pose>0.0000 0.1013 0.0550 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_3_3"><pose>0.0150 0.1013 0.0550 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_3_4"><pose>0.0300 0.1013 0.0550 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_4_0"><pose>-0.0300 0.1013 0.0700 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_4_1"><pose>-0.0150 0.1013 0.0700 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_4_2"><pose>0.0000 0.1013 0.0700 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_left_4_3"><pose>0.0150 0.1013 0.0700 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_left_4_4"><pose>0.0300 0.1013 0.0700 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
-      <visual name="side_right_backing"><pose>0 -0.1006 0.040 0 0 0</pose><geometry><box><size>0.095 0.001 0.095</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_0_0"><pose>-0.0300 -0.1013 0.0100 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_0_1"><pose>-0.0150 -0.1013 0.0100 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_0_2"><pose>0.0000 -0.1013 0.0100 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_0_3"><pose>0.0150 -0.1013 0.0100 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_0_4"><pose>0.0300 -0.1013 0.0100 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_1_0"><pose>-0.0300 -0.1013 0.0250 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_1_1"><pose>-0.0150 -0.1013 0.0250 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_1_2"><pose>0.0000 -0.1013 0.0250 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_1_3"><pose>0.0150 -0.1013 0.0250 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_1_4"><pose>0.0300 -0.1013 0.0250 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_2_0"><pose>-0.0300 -0.1013 0.0400 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_2_1"><pose>-0.0150 -0.1013 0.0400 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_2_2"><pose>0.0000 -0.1013 0.0400 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_2_3"><pose>0.0150 -0.1013 0.0400 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_2_4"><pose>0.0300 -0.1013 0.0400 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_3_0"><pose>-0.0300 -0.1013 0.0550 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_3_1"><pose>-0.0150 -0.1013 0.0550 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_3_2"><pose>0.0000 -0.1013 0.0550 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_3_3"><pose>0.0150 -0.1013 0.0550 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_3_4"><pose>0.0300 -0.1013 0.0550 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_4_0"><pose>-0.0300 -0.1013 0.0700 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_4_1"><pose>-0.0150 -0.1013 0.0700 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_4_2"><pose>0.0000 -0.1013 0.0700 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <visual name="side_right_4_3"><pose>0.0150 -0.1013 0.0700 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-      <visual name="side_right_4_4"><pose>0.0300 -0.1013 0.0700 0 0 0</pose><geometry><box><size>0.015 0.0005 0.015</size></box></geometry><material><ambient>0.75 0 0 1</ambient><diffuse>0.75 0 0 1</diffuse></material></visual>
-      <!-- ===== END SIDE CHECKERBOARDS ===== -->
-
       <!-- Optional elevated range sensor for target-observation experiments. -->
       <sensor name="target_lidar" type="gpu_lidar">
         <pose>0 0 0.130 0 0 0</pose>
