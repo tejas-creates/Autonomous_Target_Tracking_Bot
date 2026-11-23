@@ -1,0 +1,24 @@
+# Settings for the nmpc_controller node. Defaults live in nmpc/nmpc_node.py;
+# only values written here override them. Keep the decimal point on floats.
+nmpc_controller:
+  ros__parameters:
+    horizon: 3.0              # look-ahead [s]
+    dt: 0.1                   # step size and control period [s]
+    max_obstacles: 12         # nearest obstacles given to the solver
+
+    max_speed: 0.15           # follow mode [m/s]
+    desired_distance: 0.50    # following distance to the checkerboard [m]
+    target_clearance: 0.10    # never closer than this to the target body [m]
+
+    escape_speed: 0.25        # escape mode [m/s]
+    escape_accel: 0.5         # escape mode [m/s^2]
+    escape_threat: 0.3        # threat level that switches escape mode on
+
+    hard_horizon: 1.0         # moving obstacles are hard rules this long [s]
+    prediction_growth: 0.05   # moving obstacle circle growth [m/s]
+    ttc_threshold: 1.5        # obstacles closer in time than this are a threat [s]
+
+    w_gap: 4.0
+    w_view: 1.0
+    w_clear: 2.0
+    w_stop: 3.0

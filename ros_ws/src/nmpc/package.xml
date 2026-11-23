@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>nmpc</name>
+  <version>0.0.1</version>
+  <description>Nonlinear MPC that makes the AGV follow the target while avoiding obstacles.</description>
+  <maintainer email="kakashi-hatake@todo.todo">kakashi-hatake</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>obstacle_msgs</exec_depend>
+  <!-- casadi comes from ros_ws/.venv_nmpc (pip), see CLAUDE.md -->
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

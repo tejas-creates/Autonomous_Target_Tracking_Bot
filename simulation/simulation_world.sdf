@@ -1,0 +1,519 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <world name="Autonomous_Target_Tracking_Bot">
+
+    <physics name="physics" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <gravity>0 0 -9.81</gravity>
+
+    <scene>
+      <ambient>0.6 0.5 0.4 1</ambient>
+      <background>0.5 0.5 0.7 1</background>
+    </scene>
+
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 5 0 0 0</pose>
+      <diffuse>1.0 0.6 0.2 1</diffuse>
+      <direction>-1 0 -0.2</direction>
+    </light>
+
+    <!-- Simulation ground. -->
+    <model name="Garden_Dimensions">
+      <static>true</static>
+      <pose>1.9 2.1 -0.01 0 0 0</pose>
+
+      <link name="ground_link">
+        <collision name="ground_collision">
+          <geometry>
+            <box>
+              <size>12 8 0.02</size>
+            </box>
+          </geometry>
+
+          <!-- Contact filtering only; visuals remain visible to camera/LiDAR. -->
+          <surface><contact><collide_bitmask>0xFFFF</collide_bitmask></contact></surface>
+        </collision>
+
+        <visual name="ground_visual">
+          <geometry>
+            <box>
+              <size>12 8 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.65 0.68 0.65 1</ambient>
+            <diffuse>0.65 0.68 0.65 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- Core Gazebo systems. -->
+    <plugin filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics"/>
+
+    <plugin filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands"/>
+
+    <plugin filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster"/>
+
+    <plugin filename="gz-sim-sensors-system"
+            name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <!-- Moving cylinders are updated by moving_obstacle_controller. -->
+    <model name="Moving_Cylinder_01">
+      <static>true</static>
+      <pose>1 4.06746940175069 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_01_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_01_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.15 0.10 1</ambient><diffuse>0.95 0.15 0.10 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_02">
+      <static>true</static>
+      <pose>2 4 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_02_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_02_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>1.0 0.55 0.05 1</ambient><diffuse>1.0 0.55 0.05 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_03">
+      <static>true</static>
+      <pose>2.7641495217722 4.14340191291121 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_03_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_03_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.8 0.1 0.8 1</ambient><diffuse>0.8 0.1 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_04">
+      <static>true</static>
+      <pose>4.58368182869024 3.68096213347195 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_04_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_04_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.1 0.7 0.9 1</ambient><diffuse>0.1 0.7 0.9 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_05">
+      <static>true</static>
+      <pose>5.67757135101035 1.75373810816494 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_05_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_05_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.2 0.8 0.25 1</ambient><diffuse>0.2 0.8 0.25 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_06">
+      <static>true</static>
+      <pose>4.39444506236884 0.42654272926868 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_06_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_06_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.8 0.1 1</ambient><diffuse>0.95 0.8 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_07">
+      <static>true</static>
+      <pose>2.4 0 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_07_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_07_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.3 0.3 0.9 1</ambient><diffuse>0.3 0.3 0.9 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_08">
+      <static>true</static>
+      <pose>0.84925437257673 0.03754459685878 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_08_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_08_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.4 0.65 1</ambient><diffuse>0.95 0.4 0.65 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_09">
+      <static>true</static>
+      <pose>-1.2428006979732 0.21601543891485 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_09_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_09_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.2 0.65 0.55 1</ambient><diffuse>0.2 0.65 0.55 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_10">
+      <static>true</static>
+      <pose>-1.77305438444233 2 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_10_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_10_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.75 0.35 0.95 1</ambient><diffuse>0.75 0.35 0.95 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_11">
+      <static>true</static>
+      <pose>-0.56251075657829 2.65627689144573 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_11_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_11_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.15 0.85 0.75 1</ambient><diffuse>0.15 0.85 0.75 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_12">
+      <static>true</static>
+      <pose>3.0 2.2 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_12_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_12_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.55 0.25 0.95 1</ambient><diffuse>0.55 0.25 0.95 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_13">
+      <static>true</static>
+      <pose>0.8 1.6 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_13_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_13_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.35 0.65 1</ambient><diffuse>0.95 0.35 0.65 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_14">
+      <static>true</static>
+      <pose>6.8 4.6 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_14_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_14_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.35 0.55 1.0 1</ambient><diffuse>0.35 0.55 1.0 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_15">
+      <static>true</static>
+      <pose>6.9 -0.6 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_15_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_15_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.6 0.9 0.2 1</ambient><diffuse>0.6 0.9 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_16">
+      <static>true</static>
+      <pose>-3.0 5.0 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_16_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_16_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>1.0 0.75 0.45 1</ambient><diffuse>1.0 0.75 0.45 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_17">
+      <static>true</static>
+      <pose>-3.0 -1.0 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_17_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_17_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>1.0 0.75 0.45 1</ambient><diffuse>1.0 0.75 0.45 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_18">
+      <static>true</static>
+      <pose>6.5 2.6 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_18_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_18_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>1.0 0.75 0.45 1</ambient><diffuse>1.0 0.75 0.45 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_19">
+      <static>true</static>
+      <pose>1.0 5.5 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_19_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_19_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>1.0 0.75 0.45 1</ambient><diffuse>1.0 0.75 0.45 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Moving_Cylinder_20">
+      <static>true</static>
+      <pose>4.2 -1.3 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <gravity>false</gravity>
+        <inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><iyy>0.01</iyy><izz>0.005</izz></inertia></inertial>
+        <collision name="Moving_Cylinder_20_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Moving_Cylinder_20_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>1.0 0.75 0.45 1</ambient><diffuse>1.0 0.75 0.45 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Fixed cylinders use the same yellow material. -->
+    <model name="Static_Cylinder_01">
+      <static>true</static>
+      <pose>3.5 0 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <collision name="Static_Cylinder_01_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Static_Cylinder_01_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.8 0.1 1</ambient><diffuse>0.95 0.8 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Static_Cylinder_02">
+      <static>true</static>
+      <pose>3.91646629383458 3.95615843583788 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <collision name="Static_Cylinder_02_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Static_Cylinder_02_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.8 0.1 1</ambient><diffuse>0.95 0.8 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Static_Cylinder_03">
+      <static>true</static>
+      <pose>5.29579574182807 2.88040766331977 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <collision name="Static_Cylinder_03_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Static_Cylinder_03_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.8 0.1 1</ambient><diffuse>0.95 0.8 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Static_Cylinder_04">
+      <static>true</static>
+      <pose>5.21739651040941 0.97503696357694 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <collision name="Static_Cylinder_04_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Static_Cylinder_04_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.8 0.1 1</ambient><diffuse>0.95 0.8 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Static_Cylinder_05">
+      <static>true</static>
+      <pose>1.567105558238 0 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <collision name="Static_Cylinder_05_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Static_Cylinder_05_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.8 0.1 1</ambient><diffuse>0.95 0.8 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Static_Cylinder_06">
+      <static>true</static>
+      <pose>-0.2984938219409 0.02240008134529 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <collision name="Static_Cylinder_06_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Static_Cylinder_06_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.8 0.1 1</ambient><diffuse>0.95 0.8 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Static_Cylinder_07">
+      <static>true</static>
+      <pose>-1.7432329733961 2.98037686654909 0.15 0 0 0</pose>
+      <link name="obstacle_link">
+        <collision name="Static_Cylinder_07_collision">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <surface><contact><collide_bitmask>0x01</collide_bitmask></contact></surface>
+        </collision>
+        <visual name="Static_Cylinder_07_visual">
+          <geometry><cylinder><radius>0.1</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.95 0.8 0.1 1</ambient><diffuse>0.95 0.8 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+
+
+  </world>
+</sdf>

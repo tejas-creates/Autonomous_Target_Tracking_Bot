@@ -1,0 +1,5 @@
+# Placeholder, the SDF <material> overrides it.
+newmtl default
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0

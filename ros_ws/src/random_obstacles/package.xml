@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>random_obstacles</name>
+  <version>0.0.1</version>
+  <description>Moves the garden robots (Moving_Cylinder_*): random +/-45 deg legs or route crossings.</description>
+  <maintainer email="kakashi-hatake@todo.todo">kakashi-hatake</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <!-- Gazebo transport Python bindings (python3-gz-transport13, python3-gz-msgs10). -->
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
