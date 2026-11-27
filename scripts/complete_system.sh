@@ -6,6 +6,8 @@ source /opt/ros/jazzy/setup.bash
 
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
+export GZ_IP=127.0.0.1
+
 source "${PROJECT_DIR}/ros_ws/install/setup.bash"
 
 
